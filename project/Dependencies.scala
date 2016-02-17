@@ -15,7 +15,7 @@ object Dependencies {
     import Versions._
 
     val sparkDeps = Seq("spark-hive", "spark-yarn").map(
-      m => "org.apache.spark" %% m % sparkVer % "provided"
+      m => "org.apache.spark" %% m % sparkVer //% "provided"
     )
 
     val hadoopDeps = Seq("hadoop-client", "hadoop-yarn-client").map(
