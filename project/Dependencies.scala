@@ -14,7 +14,7 @@ object Dependencies {
   object Bundles {
     import Versions._
 
-    val sparkDeps = Seq("spark-hive", "spark-yarn").map(
+    val sparkDeps = Seq("spark-core", "spark-sql", "spark-hive", "spark-yarn").map(
       m => "org.apache.spark" %% m % sparkVer % "provided"
     )
 
@@ -41,8 +41,8 @@ object Dependencies {
     val testFrameworkDeps = Seq(
       "org.scalatest" %% "scalatest" % "2.2.5",
       "org.scalamock" %% "scalamock-scalatest-support" % "3.2",
-      "org.apache.spark" %% "spark-core" % sparkVer classifier "tests" artifacts Artifact("spark-core", "tests"),
-      "org.apache.spark" %% "spark-sql" % sparkVer classifier "tests" artifacts Artifact("spark-sql", "tests")
+      "org.apache.spark" %% "spark-core" % sparkVer classifier "tests",
+      "org.apache.spark" %% "spark-sql" % sparkVer classifier "tests"
     ).map(_ % "test")
 
     val allDependencies = sparkDeps ++
